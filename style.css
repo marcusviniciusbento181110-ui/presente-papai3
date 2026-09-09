@@ -1,0 +1,941 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #080808;
+    color: #ffffff;
+}
+
+
+/* =========================
+   ABERTURA
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #242424 0%,
+            #111111 45%,
+            #050505 100%
+        );
+
+    transition: opacity 1.2s ease;
+}
+
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.7)
+        );
+
+    pointer-events: none;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 700px;
+    padding: 30px;
+}
+
+
+.pre-title {
+    font-family: Arial, sans-serif;
+
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    opacity: 0.65;
+
+    margin-bottom: 25px;
+}
+
+
+h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+
+    font-weight: normal;
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+
+.subtitle {
+    font-size: 1.1rem;
+
+    font-style: italic;
+
+    opacity: 0.7;
+
+    margin-bottom: 45px;
+}
+
+
+button {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    background: transparent;
+    color: white;
+
+    padding: 15px 28px;
+
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+button span {
+    margin-left: 10px;
+}
+
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+
+.scroll-indicator {
+    position: absolute;
+
+    bottom: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 1.5rem;
+
+    opacity: 0.5;
+
+    animation: float 1.8s infinite ease-in-out;
+}
+
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 8px);
+    }
+
+}
+
+
+/* =========================
+   TRANSIÇÃO DA ABERTURA
+========================= */
+
+.fade-out {
+    animation: fadeOut 1.2s ease forwards;
+}
+
+
+@keyframes fadeOut {
+
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+
+}
+
+
+/* =========================
+   MEMÓRIA 2010
+========================= */
+
+.memory {
+    min-height: 100vh;
+
+    padding: 100px 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111111,
+            #090909
+        );
+}
+
+
+.memory-year {
+    position: absolute;
+
+    top: 40px;
+    left: 8%;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+
+    opacity: 0.45;
+}
+
+
+.memory-content {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+    max-width: 1200px;
+
+    width: 100%;
+
+    margin: auto;
+}
+
+
+.memory-text {
+    max-width: 500px;
+}
+
+
+.small-title {
+    font-family: Arial, sans-serif;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 0.75rem;
+
+    opacity: 0.5;
+
+    margin-bottom: 20px;
+}
+
+
+.memory-text h2 {
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+
+    font-weight: normal;
+
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+}
+
+
+.description {
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    opacity: 0.7;
+}
+
+
+.memory-photo {
+    display: flex;
+
+    justify-content: center;
+
+    position: relative;
+}
+
+
+.memory-photo img {
+    width: 100%;
+
+    max-width: 500px;
+
+    height: 600px;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6);
+
+    transform: rotate(1deg);
+
+    transition: transform 0.5s ease;
+}
+
+
+.memory-photo img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+
+.continue {
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: 0.4;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 800px) {
+
+    .memory-content {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .memory-text {
+        text-align: center;
+
+        margin: auto;
+    }
+
+
+    .memory-photo img {
+        height: 450px;
+    }
+
+    .arena-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.arena-text {
+    text-align: center;
+}
+
+.arena-photo img {
+    max-height: 450px;
+}
+
+.derby-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.derby-text {
+    text-align: center;
+}
+
+.derby-photo img {
+    max-height: 450px;
+}
+
+}
+
+.memory-2011-2012 {
+    min-height: 100vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.memory-2011-2012 .memory-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.memory-2011-2012 .memory-text {
+    max-width: 500px;
+}
+
+.memory-2011-2012 .memory-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.memory-2011-2012 .memory-photos img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.memory-2011-2012 .memory-photos img:nth-child(2) {
+    margin-top: 50px;
+}
+
+.memory-2015-2018 {
+    min-height: 100vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.memory-header {
+    max-width: 700px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.photo-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+    border-radius: 4px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* =========================
+   2021 — ARENA
+========================= */
+
+.arena-section {
+    min-height: 100vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.arena-content {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.arena-text {
+    position: relative;
+    z-index: 2;
+}
+
+.arena-text h2 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.arena-highlight {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.arena-photo {
+    position: relative;
+    z-index: 2;
+}
+
+.arena-photo img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   2023 — PRIMEIRO DERBY
+========================= */
+
+.derby-section {
+    min-height: 100vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.derby-content {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.derby-text h2 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.derby-highlight {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.derby-photo img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.counter-section {
+    min-height: 70vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.counter-section h2 {
+    max-width: 800px;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.counter-description {
+    max-width: 650px;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-item span {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+}
+
+.counter-item small {
+    margin-top: 5px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 800px) {
+    .counter {
+        gap: 25px;
+    }
+
+    .counter-item span {
+        font-size: 2.2rem;
+    }
+
+    .counter-item small {
+        font-size: 0.7rem;
+    }
+}
+
+/* =========================
+   MÚSICA
+========================= */
+
+.music-section {
+    min-height: 80vh;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.music-content {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.music-cover {
+    width: 350px;
+    height: 350px;
+    .music-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+}
+
+.music-cover-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7rem;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.music-info h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.music-description {
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+.music-player {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.play-button {
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.music-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.music-title {
+    font-weight: bold;
+}
+
+.music-artist {
+    opacity: 0.6;
+}
+
+@media (max-width: 500px) {
+    .music-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .music-cover {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+
+    .music-player {
+        justify-content: center;
+    }
+}
+
+/* =========================
+   GRAN FINALE
+========================= */
+
+.finale-section {
+    min-height: 100vh;
+    padding: 140px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.finale-intro {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.finale-intro h2 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+
+.finale-description {
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.finale-highlight {
+    margin-top: 35px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* CONTADOR */
+
+.final-counter {
+    max-width: 900px;
+    width: 100%;
+    margin: 80px auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.final-counter .counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.final-counter .counter-item span {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.final-counter .counter-item small {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* TRANSIÇÃO */
+
+.finale-transition {
+    margin: 130px auto 0;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: bold;
+}
+
+.finale-transition p {
+    margin: 0;
+}
+
+
+/* MENSAGEM FINAL */
+
+.final-message {
+    max-width: 750px;
+    margin: 180px auto 0;
+    line-height: 1.8;
+}
+
+.final-message p {
+    margin-bottom: 30px;
+}
+
+.final-years {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.final-message h2 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    margin: 50px 0;
+}
+
+.final-thanks {
+    font-size: 1.2rem;
+}
+
+.final-love {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 800px) {
+
+    .finale-section {
+        padding: 100px 7%;
+    }
+
+    .final-counter {
+        gap: 30px;
+        margin-top: 60px;
+    }
+
+    .final-counter .counter-item {
+        min-width: 70px;
+    }
+
+    .final-counter .counter-item span {
+        font-size: 2.3rem;
+    }
+
+    .final-counter .counter-item small {
+        font-size: 0.65rem;
+    }
+
+    .finale-transition {
+        margin-top: 100px;
+    }
+
+    .final-message {
+        margin-top: 130px;
+    }
+
+}
+
+.continue {
+    animation: continueFloat 1.8s ease-in-out infinite;
+    cursor: default;
+}
+
+@keyframes continueFloat {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.45;
+    }
+
+    50% {
+        transform: translateY(8px);
+        opacity: 1;
+    }
+}
+
+.continue {
+    cursor: pointer;
+    animation: continueFloat 1.8s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+
+.continue:hover {
+    opacity: 1;
+}
+
+@keyframes continueFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: translateY(8px);
+        opacity: 1;
+    }
+
+}
