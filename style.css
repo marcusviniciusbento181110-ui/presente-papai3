@@ -971,3 +971,184 @@ button:hover {
     }
 
 }
+
+/* =========================================================
+   AJUSTES PARA CELULAR
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -----------------------------------------
+       MEMÓRIAS NORMAIS
+       Texto em cima + foto embaixo
+       ----------------------------------------- */
+
+    .memory-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .memory-text {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .memory-photo {
+        width: 100%;
+        max-width: 500px;
+        margin-top: 40px;
+    }
+
+    .memory-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------------------
+       2011 — 2012
+       Uma foto embaixo da outra
+       ----------------------------------------- */
+
+    .memory-2011-2012 .memory-photos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 40px;
+    }
+
+    .memory-2011-2012 .memory-photos img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------------------
+       MOSAICO 2015 — 2018
+       Duas colunas no celular
+       ----------------------------------------- */
+
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+        width: 100%;
+    }
+
+    .photo-grid img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------------------
+       ARENA 2021
+       Texto em cima + foto embaixo
+       ----------------------------------------- */
+
+    .arena-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .arena-text {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .arena-photo {
+        width: 100%;
+        max-width: 550px;
+        margin-top: 45px;
+    }
+
+    .arena-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------------------
+       DERBY 2023
+       Mesmo tratamento da Arena
+       ----------------------------------------- */
+
+    .derby-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .derby-text {
+        width: 100%;
+        max-width: 650px;
+    }
+
+    .derby-photo {
+        width: 100%;
+        max-width: 550px;
+        margin-top: 45px;
+    }
+
+    .derby-photo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+
+    /* -----------------------------------------
+       TEXTOS GRANDES
+       Evita que o texto fique gigantesco
+       verticalmente no celular
+       ----------------------------------------- */
+
+    .memory-text h2,
+    .arena-text h2,
+    .derby-text h2 {
+        max-width: 100%;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       TELAS MUITO PEQUENAS
+       ----------------------------------------- */
+
+    @media (max-width: 480px) {
+
+        .photo-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .memory-photo,
+        .arena-photo,
+        .derby-photo {
+            max-width: 100%;
+        }
+
+        .memory-2011-2012 .memory-photos {
+            max-width: 100%;
+        }
+    }
+}
